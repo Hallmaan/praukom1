@@ -34,7 +34,7 @@ namespace Praukom1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox4.Text == "" || comboBox4.Text == "")
+            if(textBox1.Text == "" || textBox2.Text == "" || textBox4.Text == "" || comboBox4.Text == "")
             {
                 MessageBox.Show("Error Field Missing");
             }
@@ -380,6 +380,259 @@ namespace Praukom1
                     MessageBox.Show("Berhasil Menghapus pembayaran!");
                     koneksi.Close();
                     tampilkandatapembayaran();
+                    tampilkandatatagihan();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    koneksi.Close();
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = dataGridView1.CurrentCell.RowIndex;
+            idterpilih = dataGridView1.Rows[row].Cells[0].Value.ToString();
+            textBox1.Text = dataGridView1.Rows[row].Cells[2].Value.ToString();
+            textBox2.Text = dataGridView1.Rows[row].Cells[1].Value.ToString();
+            textBox4.Text = dataGridView1.Rows[row].Cells[3].Value.ToString();
+            comboBox4.Text = dataGridView1.Rows[row].Cells[4].Value.ToString();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                MessageBox.Show("Error Field Missing");
+            }
+            else
+            {
+                try
+                {
+                    koneksi.Open();
+                    cmd = new MySqlCommand("delete from pelanggan where idpelanggan = '" + idterpilih + "'", koneksi);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Berhasil Menghapus Pelanggan!");
+                    koneksi.Close();
+                    tampilkandatapengguna();
+             //       tampilkandatatagihan();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    koneksi.Close();
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                MessageBox.Show("Error Field Missing");
+            }
+            else
+            {
+                try
+                {
+                    koneksi.Open();
+                    cmd = new MySqlCommand("update pelanggan set nometer = '"+textBox2.Text+"', nama = '"+textBox1.Text+"', alamat = '"+textBox4.Text+"', kodetarif = '"+comboBox4.Text+"'  where idpelanggan = '" + idterpilih + "'", koneksi);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Berhasil Mengubah pelanggan!");
+                    koneksi.Close();
+                    tampilkandatapengguna();
+                    //tampilkandatatagihan();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    koneksi.Close();
+                }
+            }
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = dataGridView2.CurrentCell.RowIndex;
+            idterpilih = dataGridView2.Rows[row].Cells[0].Value.ToString();
+            textBox8.Text = dataGridView2.Rows[row].Cells[1].Value.ToString();
+            textBox7.Text = dataGridView2.Rows[row].Cells[2].Value.ToString();
+            textBox6.Text = dataGridView2.Rows[row].Cells[3].Value.ToString();
+            //comboBox4.Text = dataGridView2.Rows[row].Cells[4].Value.ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (textBox8.Text == "")
+            {
+                MessageBox.Show("Error Field Missing");
+            }
+            else
+            {
+                try
+                {
+                    koneksi.Open();
+                    cmd = new MySqlCommand("delete from tarif where id = '" + idterpilih + "'", koneksi);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Berhasil Menghapus tarif!");
+                    koneksi.Close();
+                    tampilkandatatarif();
+                    //       tampilkandatatagihan();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    koneksi.Close();
+                }
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (textBox8.Text == "")
+            {
+                MessageBox.Show("Error Field Missing");
+            }
+            else
+            {
+                try
+                {
+                    koneksi.Open();
+                    cmd = new MySqlCommand("update tarif set daya = '" + textBox7.Text + "', tarifperkwh = '" + textBox6.Text + "'  where id = '" + idterpilih + "'", koneksi);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Berhasil Mengubah Tarif!");
+                    koneksi.Close();
+                    tampilkandatatarif();
+                    //tampilkandatatagihan();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    koneksi.Close();
+                }
+            }
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = dataGridView3.CurrentCell.RowIndex;
+            idterpilih = dataGridView3.Rows[row].Cells[0].Value.ToString();
+            comboBox5.Text = dataGridView3.Rows[row].Cells[2].Value.ToString();
+            comboBox1.Text = dataGridView3.Rows[row].Cells[1].Value.ToString();
+            textBox9.Text = dataGridView3.Rows[row].Cells[3].Value.ToString();
+            textBox10.Text = dataGridView3.Rows[row].Cells[4].Value.ToString();
+            textBox5.Text = dataGridView3.Rows[row].Cells[5].Value.ToString();
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "")
+            {
+                MessageBox.Show("Error Field Missing");
+            }
+            else
+            {
+                try
+                {
+                    koneksi.Open();
+                    cmd = new MySqlCommand("delete from penggunaan where id = '" + idterpilih + "'", koneksi);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Berhasil Menghapus penggunaan!");
+                    koneksi.Close();
+                    tampilkandatapenggunaan();
+                    //       tampilkandatatagihan();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    koneksi.Close();
+                }
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "")
+            {
+                MessageBox.Show("Error Field Missing");
+            }
+            else
+            {
+                try
+                {
+                    koneksi.Open();
+                    cmd = new MySqlCommand("update penggunaan set idpelanggan = '" + label22.Text + "', bulan = '" + comboBox5.Text + "', tahun = '" + textBox9.Text + "', meterawal = '" + textBox10.Text + "', meterakhir = '" + textBox5.Text + "'  where id = '" + idterpilih + "'", koneksi);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Berhasil Mengubah Penggunaan!");
+                    koneksi.Close();
+                    tampilkandatapenggunaan();
+                    //tampilkandatatagihan();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    koneksi.Close();
+                }
+            }
+        }
+
+        private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = dataGridView4.CurrentCell.RowIndex;
+            idterpilih = dataGridView4.Rows[row].Cells[0].Value.ToString();
+            textBox15.Text = dataGridView4.Rows[row].Cells[2].Value.ToString();
+            comboBox2.Text = dataGridView4.Rows[row].Cells[1].Value.ToString();
+            textBox13.Text = dataGridView4.Rows[row].Cells[3].Value.ToString();
+            textBox14.Text = dataGridView4.Rows[row].Cells[4].Value.ToString();
+            textBox12.Text = dataGridView4.Rows[row].Cells[5].Value.ToString();
+            //textBox5.Text = dataGridView3.Rows[row].Cells[5].Value.ToString();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (comboBox2.Text == "")
+            {
+                MessageBox.Show("Error Field Missing");
+            }
+            else
+            {
+                try
+                {
+                    koneksi.Open();
+                    cmd = new MySqlCommand("delete from tagihan where id = '" + idterpilih + "'", koneksi);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Berhasil Menghapus tagihan!");
+                    koneksi.Close();
+                    tampilkandatatagihan();
+                    //       tampilkandatatagihan();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    koneksi.Close();
+                }
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if (comboBox2.Text == "")
+            {
+                MessageBox.Show("Error Field Missing");
+            }
+            else
+            {
+                try
+                {
+                    koneksi.Open();
+                    cmd = new MySqlCommand("update tagihan set idpenggunaan = '" + comboBox2.Text + "', bulan = '" + textBox15.Text + "', tahun = '" + textBox13.Text + "', jumlahmeter = '" + textBox14.Text + "', status = '" + textBox12.Text + "'  where id = '" + idterpilih + "'", koneksi);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Berhasil Mengubah tagihan!");
+                    koneksi.Close();
+                   // tampilkandatapenggunaan();
                     tampilkandatatagihan();
                 }
                 catch (Exception ex)

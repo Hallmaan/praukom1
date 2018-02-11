@@ -273,6 +273,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Ubah";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -286,6 +287,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Hapus";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridView1
             // 
@@ -294,6 +296,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(549, 150);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
@@ -442,6 +445,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(549, 150);
             this.dataGridView2.TabIndex = 16;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // button4
@@ -456,6 +460,7 @@
             this.button4.TabIndex = 15;
             this.button4.Text = "Hapus";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -469,6 +474,7 @@
             this.button5.TabIndex = 14;
             this.button5.Text = "Ubah";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -561,6 +567,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(549, 150);
             this.dataGridView3.TabIndex = 16;
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
             // 
             // button8
             // 
@@ -574,6 +581,7 @@
             this.button8.TabIndex = 15;
             this.button8.Text = "Hapus";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -587,6 +595,7 @@
             this.button9.TabIndex = 14;
             this.button9.Text = "Ubah";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -754,6 +763,7 @@
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(549, 150);
             this.dataGridView4.TabIndex = 33;
+            this.dataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellClick);
             // 
             // button11
             // 
@@ -767,6 +777,7 @@
             this.button11.TabIndex = 32;
             this.button11.Text = "Hapus";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
@@ -780,6 +791,7 @@
             this.button12.TabIndex = 31;
             this.button12.Text = "Ubah";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
